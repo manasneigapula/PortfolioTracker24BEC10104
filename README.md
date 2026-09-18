@@ -13,7 +13,7 @@
 | **Credits** | 3 |
 | **Framework & Evaluation** | VITyarthi - Build Your Own Project Guidelines |
 | **Project Statement** | See [statement.md](statement.md) for Problem Statement, Scope, Target Users & Feature Matrix |
-| **Formal Project Report** | Located at [docs/Project_Report_Manas_24BEC10104.pdf](docs/Project_Report_Manas_24BEC10104.pdf) |
+| **Formal Project Report** | Located at [docs/project_report_manas_krishna_24bec10104.pdf](docs/project_report_manas_krishna_24bec10104.pdf) |
 
 ---
 
