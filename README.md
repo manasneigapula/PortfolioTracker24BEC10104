@@ -27,7 +27,7 @@ PortfolioTracker/
 ├── run.bat                                  ← Windows automated build, run & test script
 ├── run.sh                                   ← Linux/macOS automated build, run & test script
 ├── docs/
-│   └── Portfolio_Tracker_Report_priyam_prakash.pdf  ← Comprehensive academic project report
+│   └── project_report_manas_krishna_24bec10104.pdf  ← Comprehensive academic project report
 ├── lib/                                     ← JAR dependencies (auto-downloaded)
 │   ├── sqlite-jdbc.jar
 │   ├── slf4j-api.jar
