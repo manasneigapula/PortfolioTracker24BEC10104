@@ -1,9 +1,6 @@
 package com.portfolio.model;
 
-/**
- * Holds aggregated portfolio statistics.
- * Demonstrates: Java Classes, Encapsulation (Unit 2)
- */
+
 public class PortfolioSummary {
     private double totalInvested;
     private double totalCurrentValue;
@@ -38,7 +35,7 @@ public class PortfolioSummary {
         else if (asset instanceof MutualFund) mutualFundCount++;
     }
 
-    // Getters
+
     public double getTotalInvested() { return totalInvested; }
     public double getTotalCurrentValue() { return totalCurrentValue; }
     public double getTotalProfitLoss() { return totalProfitLoss; }
