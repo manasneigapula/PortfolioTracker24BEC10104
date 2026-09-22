@@ -2,10 +2,6 @@ package com.portfolio.model;
 
 import java.time.LocalDate;
 
-/**
- * Represents a Mutual Fund asset.
- * Demonstrates: Inheritance, Method Overriding (Unit 2)
- */
 public class MutualFund extends Asset {
     private String fundHouse;
     private String category;  // e.g., Large Cap, Mid Cap, Debt
