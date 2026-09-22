@@ -2,10 +2,7 @@ package com.portfolio.model;
 
 import java.time.LocalDate;
 
-/**
- * Abstract base class for all asset types.
- * Demonstrates: Abstract class, Encapsulation, OOP principles (Unit 2)
- */
+
 public abstract class Asset {
     protected int id;
     protected String symbol;
@@ -15,7 +12,7 @@ public abstract class Asset {
     protected LocalDate buyDate;
     protected String currency;
 
-    // Constructor
+
     public Asset(int id, String symbol, String name, double quantity, double buyPrice, LocalDate buyDate, String currency) {
         this.id = id;
         this.symbol = symbol.toUpperCase();
@@ -26,12 +23,11 @@ public abstract class Asset {
         this.currency = currency;
     }
 
-    // Abstract methods - must be implemented by subclasses (Polymorphism)
+
     public abstract String getAssetType();
     public abstract double calculateCurrentValue(double currentPrice);
     public abstract String getSummary();
 
-    // Common methods
     public double getTotalInvestment() {
         return quantity * buyPrice;
     }
@@ -45,7 +41,7 @@ public abstract class Asset {
         return (getProfitLoss(currentPrice) / getTotalInvestment()) * 100;
     }
 
-    // Getters and Setters (Encapsulation)
+ 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public String getSymbol() { return symbol; }
