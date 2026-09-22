@@ -1,9 +1,5 @@
 package com.portfolio.exception;
 
-/**
- * Custom exception for asset-related errors.
- * Demonstrates: Java Exception Handling, Custom Exceptions (Unit 3)
- */
 public class AssetNotFoundException extends Exception {
     private int assetId;
 
