@@ -11,11 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Data Access Object for Asset CRUD operations.
- * Demonstrates: JDBC API - PreparedStatement, ResultSet,
- *               Submitting queries and getting results (Unit 5)
- */
 public class AssetDAO {
 
     private final Connection connection;
@@ -24,7 +19,7 @@ public class AssetDAO {
         this.connection = DatabaseManager.getInstance().getConnection();
     }
 
-    // CREATE - Insert new asset
+
     public int addAsset(Asset asset) throws SQLException {
         String sql = "INSERT INTO assets (symbol, name, asset_type, quantity, buy_price, buy_date, currency, extra1, extra2, extra3) " +
                      "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -38,7 +33,6 @@ public class AssetDAO {
             pstmt.setString(6, asset.getBuyDate().toString());
             pstmt.setString(7, asset.getCurrency());
 
-            // Set type-specific extra fields
             if (asset instanceof Stock stock) {
                 pstmt.setString(8, stock.getExchange());
                 pstmt.setString(9, stock.getSector());
@@ -69,7 +63,7 @@ public class AssetDAO {
         return -1;
     }
 
-    // READ ALL - Get all assets
+
     public List<Asset> getAllAssets() throws SQLException {
         List<Asset> assets = new ArrayList<>();
         String sql = "SELECT * FROM assets ORDER BY asset_type, name";
@@ -85,7 +79,6 @@ public class AssetDAO {
         return assets;
     }
 
-    // READ BY ID - Get single asset
     public Asset getAssetById(int id) throws SQLException, AssetNotFoundException {
         String sql = "SELECT * FROM assets WHERE id = ?";
 
@@ -101,7 +94,7 @@ public class AssetDAO {
         }
     }
 
-    // READ BY TYPE
+
     public List<Asset> getAssetsByType(String assetType) throws SQLException {
         List<Asset> assets = new ArrayList<>();
         String sql = "SELECT * FROM assets WHERE asset_type = ? ORDER BY name";
@@ -118,7 +111,7 @@ public class AssetDAO {
         return assets;
     }
 
-    // UPDATE - Update asset quantity and price
+
     public boolean updateAsset(int id, double newQuantity, double newBuyPrice) throws SQLException, AssetNotFoundException {
         // First check it exists
         getAssetById(id);
@@ -151,7 +144,7 @@ public class AssetDAO {
         }
     }
 
-    // Save current price for an asset
+
     public void savePriceEntry(int assetId, double price) throws SQLException {
         String sql = "INSERT INTO price_history (asset_id, price, recorded_date) VALUES (?, ?, ?)";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -162,7 +155,7 @@ public class AssetDAO {
         }
     }
 
-    // Get latest price for all assets
+
     public Map<Integer, Double> getLatestPrices() throws SQLException {
         Map<Integer, Double> prices = new HashMap<>();
         String sql = """
@@ -181,7 +174,7 @@ public class AssetDAO {
         return prices;
     }
 
-    // Map ResultSet row to Asset object (Factory-style)
+
     private Asset mapResultSetToAsset(ResultSet rs) throws SQLException {
         int id = rs.getInt("id");
         String symbol = rs.getString("symbol");
