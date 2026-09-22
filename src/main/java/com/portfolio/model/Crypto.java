@@ -2,10 +2,7 @@ package com.portfolio.model;
 
 import java.time.LocalDate;
 
-/**
- * Represents a Cryptocurrency asset.
- * Demonstrates: Inheritance, Method Overriding (Unit 2)
- */
+
 public class Crypto extends Asset {
     private String blockchain;
     private String walletAddress;
