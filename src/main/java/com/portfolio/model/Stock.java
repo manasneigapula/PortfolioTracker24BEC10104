@@ -2,12 +2,9 @@ package com.portfolio.model;
 
 import java.time.LocalDate;
 
-/**
- * Represents a Stock asset.
- * Demonstrates: Inheritance from Asset, Method Overriding (Unit 2)
- */
+
 public class Stock extends Asset {
-    private String exchange;   // e.g., NSE, BSE, NYSE
+    private String exchange;  
     private String sector;
 
     public Stock(int id, String symbol, String name, double quantity, double buyPrice,
