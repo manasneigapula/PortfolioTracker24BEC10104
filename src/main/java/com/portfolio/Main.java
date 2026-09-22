@@ -13,17 +13,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-/**
- * Main application entry point.
- * Demonstrates: Java I/O (Scanner), Flow Control, Exception Handling,
- *               all topics from Units 1-5.
- */
 public class Main {
 
     private static final Scanner scanner = new Scanner(System.in);
     private static PortfolioService portfolioService;
 
-    // ANSI color codes for styled CLI output
     private static final String RESET  = "\033[0m";
     private static final String BOLD   = "\033[1m";
     private static final String GREEN  = "\033[32m";
@@ -76,7 +70,6 @@ public class Main {
         scanner.close();
     }
 
-    // ─── MENUS ─────────────────────────────────────────────────────────────────
 
     private static void printBanner() {
         System.out.println(CYAN + BOLD);
@@ -104,7 +97,6 @@ public class Main {
         System.out.print("Enter your choice: ");
     }
 
-    // ─── ADD ASSET ─────────────────────────────────────────────────────────────
 
     private static void addAssetMenu() throws InvalidInputException, SQLException {
         System.out.println(BOLD + "\n─── Add New Asset ───" + RESET);
@@ -175,7 +167,6 @@ public class Main {
         System.out.println("   " + asset);
     }
 
-    // ─── VIEW ALL ──────────────────────────────────────────────────────────────
 
     private static void viewAllAssets() {
         List<Asset> assets = portfolioService.getAllAssets();
@@ -195,7 +186,6 @@ public class Main {
         printTableFooter();
     }
 
-    // ─── PORTFOLIO SUMMARY ─────────────────────────────────────────────────────
 
     private static void viewPortfolioSummary() {
         PortfolioSummary summary = portfolioService.getPortfolioSummary();
@@ -221,7 +211,6 @@ public class Main {
         System.out.println("─".repeat(50));
     }
 
-    // ─── UPDATE PRICE ──────────────────────────────────────────────────────────
 
     private static void updatePriceMenu() throws InvalidInputException, SQLException, AssetNotFoundException {
         System.out.println(BOLD + "\n─── Update Current Price ───" + RESET);
@@ -236,7 +225,6 @@ public class Main {
         System.out.println(GREEN + "✅ Price updated for Asset ID: " + id + RESET);
     }
 
-    // ─── DELETE ────────────────────────────────────────────────────────────────
 
     private static void deleteAssetMenu() throws InvalidInputException, SQLException, AssetNotFoundException {
         System.out.println(BOLD + "\n─── Delete Asset ───" + RESET);
@@ -255,7 +243,7 @@ public class Main {
         }
     }
 
-    // ─── SEARCH ────────────────────────────────────────────────────────────────
+
 
     private static void searchAssets() {
         String query = prompt("\n🔍 Search by symbol or name: ");
@@ -276,7 +264,6 @@ public class Main {
         printTableFooter();
     }
 
-    // ─── SORTED VIEW ───────────────────────────────────────────────────────────
 
     private static void viewSortedAssets() {
         System.out.println(BOLD + "\n📈 ASSETS SORTED BY P&L (Best → Worst)" + RESET);
@@ -296,7 +283,6 @@ public class Main {
         printTableFooter();
     }
 
-    // ─── BY TYPE ───────────────────────────────────────────────────────────────
 
     private static void viewByType() {
         Map<String, List<Asset>> grouped = portfolioService.getAssetsByType();
@@ -318,7 +304,6 @@ public class Main {
         }
     }
 
-    // ─── EXPORT ────────────────────────────────────────────────────────────────
 
     private static void exportMenu() throws IOException {
         System.out.println(BOLD + "\n─── Export Report ───" + RESET);
@@ -347,7 +332,6 @@ public class Main {
         }
     }
 
-    // ─── HELPERS ───────────────────────────────────────────────────────────────
 
     private static String prompt(String message) {
         System.out.print(message);
